@@ -1,18 +1,20 @@
 package wgstudy.backend;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 @RestController
 public class SubController {
 	@RequestMapping(value="/enemy/{champion_name}/counters", method=RequestMethod.GET)
-	public String getCounters() {
-		// 설계 단계의 수정이 필요할듯?? JsonObject 사용시 jsontype 패키지 삭제
-		// champion_name 사용법 학습 필요
+	public String getCounters(@PathVariable(value = "champion_name") String champion) {
+		// 설계 단계의 수정이 필요할듯?? JsonObject(gson) 사용시 jsontype 패키지 삭제
+		// champion_name 사용법 학습 필요 -> PathVariable 사용
 		JsonObject obj = new JsonObject();
 		JsonObject counterInfo = new JsonObject();
 		JsonArray line = new JsonArray();
@@ -51,12 +53,15 @@ public class SubController {
 		obj.add("ad", ad);
 		obj.add("sup", sup);
 		obj.add("counter_info", counterInfo);
-
-		return obj.toString();
+		
+		if(champion.equals("Garen"))
+			return obj.toString();
+		else
+			return "put Garen for test";
 	}
 	
 	@RequestMapping(value="/ally/{champion_name}/cc_skills", method=RequestMethod.GET)
-	public String getCC() {
+	public String getCC(@PathVariable(value = "champion_name") String champion) {
 		// 설계 단계의 수정이 필요할듯?? JsonObject 사용시 jsontype 패키지 삭제
 		// champion_name 사용법 학습 필요
 		JsonObject obj = new JsonObject();
@@ -74,7 +79,7 @@ public class SubController {
 	}
 	
 	@RequestMapping(value="/ally/{champion_name}/types", method=RequestMethod.GET)
-	public String getTypes() {
+	public String getTypes(@PathVariable(value = "champion_name") String champion) {
 		// 설계 단계의 수정이 필요할듯?? JsonObject 사용시 jsontype 패키지 삭제
 		// champion_name 사용법 학습 필요
 		JsonObject obj = new JsonObject();
@@ -89,7 +94,7 @@ public class SubController {
 	}
 	
 	@RequestMapping(value="/ally/{champion_name}/{line}/synergies", method=RequestMethod.GET)
-	public String getSynergies() {
+	public String getSynergies(@PathVariable(value = "champion_name") String champion, @PathVariable(value = "line") String line) {
 		// 설계 단계의 수정이 필요할듯?? JsonObject 사용시 jsontype 패키지 삭제
 		// champion_name 사용법 학습 필요
 		JsonObject obj = new JsonObject();
