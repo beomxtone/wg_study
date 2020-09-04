@@ -50,6 +50,17 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 		</dependency>
+		<dependency> <!-- spring.io 에서 프로젝트 생성시 설정 -->
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		
+		<!-- mssql  -->
+		<dependency>
+		  <groupId>com.microsoft.sqlserver</groupId>
+		  <artifactId>mssql-jdbc</artifactId>
+		  <scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -60,5 +71,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
 </project>

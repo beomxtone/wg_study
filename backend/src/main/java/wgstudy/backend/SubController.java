@@ -1,5 +1,8 @@
 package wgstudy.backend;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,12 +12,18 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import wgstudy.dao.ChampionDao;
+
 @RestController
 public class SubController {
+	@Autowired
+	DataSource dataSource;
+	@Autowired
+	ChampionDao championDao;
+	
 	@RequestMapping(value="/enemy/{champion_name}/counters", method=RequestMethod.GET)
 	public String getCounters(@PathVariable(value = "champion_name") String champion) {
-		// 설계 단계의 수정이 필요할듯?? JsonObject(gson) 사용시 jsontype 패키지 삭제
-		// champion_name 사용법 학습 필요 -> PathVariable 사용
+		// connection 만들어야됨
 		JsonObject obj = new JsonObject();
 		JsonObject counterInfo = new JsonObject();
 		JsonArray line = new JsonArray();
@@ -62,8 +71,6 @@ public class SubController {
 	
 	@RequestMapping(value="/ally/{champion_name}/cc_skills", method=RequestMethod.GET)
 	public String getCC(@PathVariable(value = "champion_name") String champion) {
-		// 설계 단계의 수정이 필요할듯?? JsonObject 사용시 jsontype 패키지 삭제
-		// champion_name 사용법 학습 필요
 		JsonObject obj = new JsonObject();
 		JsonObject ccInfo = new JsonObject();
 		JsonArray ccList = new JsonArray();
@@ -80,8 +87,6 @@ public class SubController {
 	
 	@RequestMapping(value="/ally/{champion_name}/types", method=RequestMethod.GET)
 	public String getTypes(@PathVariable(value = "champion_name") String champion) {
-		// 설계 단계의 수정이 필요할듯?? JsonObject 사용시 jsontype 패키지 삭제
-		// champion_name 사용법 학습 필요
 		JsonObject obj = new JsonObject();
 		
 		obj.addProperty("content_type", "json");
@@ -95,8 +100,6 @@ public class SubController {
 	
 	@RequestMapping(value="/ally/{champion_name}/{line}/synergies", method=RequestMethod.GET)
 	public String getSynergies(@PathVariable(value = "champion_name") String champion, @PathVariable(value = "line") String line) {
-		// 설계 단계의 수정이 필요할듯?? JsonObject 사용시 jsontype 패키지 삭제
-		// champion_name 사용법 학습 필요
 		JsonObject obj = new JsonObject();
 		JsonObject synergyInfo = new JsonObject();
 		JsonArray top = new JsonArray();
