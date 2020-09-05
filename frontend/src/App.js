@@ -11,6 +11,7 @@ class App extends Component {
       selectedChamp: 'Default',
       pickCount: 0,
       team: 'Default',
+      team2: 'Default',
       champions:[
         {id: 1, name_en:'Garen', name_ko:'가렌', picked: false},
         {id: 2, name_en:'Galio', name_ko:'갈리오', picked: false},
@@ -192,6 +193,19 @@ class App extends Component {
           url={this.squareURL}
           team={this.state.team}
           champ = {this.getChamp()}
+          selectTeam={function(team){
+            if(team === 'Blue') {
+              this.setState({
+                team: team,
+                team2: 'Red'
+              });
+            } else {
+              this.setState({
+                team: team,
+                team2: 'Blue'
+              });
+            }
+          }.bind(this)}
           selectChampion={function(name){
             var i = 0;
             while(i < this.state.champions.length){
@@ -216,12 +230,12 @@ class App extends Component {
               champions:champs
             });
           }.bind(this)}
-        ></ChampList>;.
+        ></ChampList>
         <div className="pick2">
         <PickFive 
           champName={this.state.selectedChamp}
           url={this.squareURL}
-          team={2}
+          team={this.state.team2}
           pickCount={this.state.pickCount}
         ></PickFive>
         </div>

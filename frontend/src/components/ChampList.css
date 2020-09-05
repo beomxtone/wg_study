@@ -25,29 +25,23 @@
   height: 75px;
   margin: 15px;
 }
-.BlueTeam {
-  width: 40%;
-  padding-bottom: 28.2842712474619%;
-  position: relative;
-  overflow: hidden;
-  background-color: blue;
+.Blue {
+  width: 150px;
+  height: 80px;
+  margin-left: 100px;
+  margin-top: 200px;
+  float: left;
+  line-height: 80px;
+  font-size: xx-large;
+  background: linear-gradient( rgb(58, 77, 255, 0.7), rgba(58, 77, 255, 0.5));
 }
-.BlueTeam a {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  transform-origin: 0 100%;
-  transform: rotate(45deg);
-  transition: background-color .3s;
-}
-.RedTeam {
-  width: 0px;
-  height: 0px;
-  border-top: 490px solid rgba(255, 60, 0, 0.4);
-  border-bottom: 0px solid none;
-  border-left: 630px solid transparent;
-  border-right: 0px solid transparent;
-  position: absolute;
-  top: 0;
-  left: 0;
+.Red {
+  width: 150px;
+  height: 80px;
+  margin-right: 100px;
+  margin-top: 200px;
+  float: right;
+  line-height: 80px;
+  font-size: xx-large;
+  background: linear-gradient( rgb(255, 58, 58, 0.7), rgba(255, 58, 58, 0.5));
 }

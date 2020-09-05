@@ -20,9 +20,9 @@ class PickFive extends Component {
     }
   }
   teamCheck(team){
-    if(team === 'blue'){
+    if(team === 'Blue'){
       return(this.state.pick1);
-    } else if(team === 'red'){
+    } else if(team === 'Red'){
       return(this.state.pick2);
     } else{
       return(this.state.pick1);

@@ -5,6 +5,7 @@ class ChampList extends Component {
   constructor(props){
     super(props);
     this.selectChampion = this.selectChampion.bind(this);
+    this.selectTeam = this.selectTeam.bind(this);
   }
   selectChampion(e){
     e.preventDefault();
@@ -12,8 +13,7 @@ class ChampList extends Component {
   }
   selectTeam(e){
     e.preventDefault();
-    console.log(e.currentTarget.className);
-    debugger;
+    this.props.selectTeam(e.target.className);
   }
   render() {
     var list = [];
@@ -49,20 +49,18 @@ class ChampList extends Component {
     }
     else {
       list.push(
-        <img 
-          className='BlueTeam'
+        <div 
+          className='Blue'
           key='Blue'
-          alt='Blue'
           onClick={this.selectTeam}
-        ></img>
+        >Blue</div>
       );
       list.push(
-        <img
-          className='RedTeam'
+        <div
+          className='Red'
           key='Red'
-          alt='Red'
           onClick={this.selectTeam}
-        ></img>
+        >Red</div>
       )
     }
 
