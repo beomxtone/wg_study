@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import './ChampList.css'
+import './ApiService'
+import ApiService from './ApiService';
 
 class ChampList extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      selectChamp: ''
+    }
     this.selectChampion = this.selectChampion.bind(this);
     this.selectTeam = this.selectTeam.bind(this);
   }
   selectChampion(e){
     e.preventDefault();
     this.props.selectChampion(e.target.alt);
+    ApiService.selectChamp(e.target.alt);
   }
   selectTeam(e){
     e.preventDefault();
