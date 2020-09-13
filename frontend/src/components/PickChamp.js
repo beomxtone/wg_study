@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ApiService from './ApiService'
 
 class PickChamp extends Component {
   constructor(props){
@@ -9,15 +10,15 @@ class PickChamp extends Component {
   }
   render(){
     const divStyle = {
-      width: '75px',
-      height: '75px',
+      width: '90px',
+      height: '90px',
       borderRadius: '70%',
       border: '1px solid black',
       margin: '15px'
     }
     const pickStyle = {
-      width: '75px',
-      height: '75px',
+      width: '90px',
+      height: '90px',
       borderRadius: '70%',
       overflow: 'hiddeen'
     }
@@ -29,6 +30,12 @@ class PickChamp extends Component {
           selectedChampName: this.props.champName
         });
         url = this.props.url + this.state.selectedChampName + '.png'
+        if(this.props.allyEnemy === 'Ally') {
+          ApiService.getCC(this.props.champName);
+          ApiService.getType(this.props.champName);
+        } else if(this.props.allyEnemy === 'Enemy') {
+          ApiService.getCounter(this.props.champName);
+        }
       }
     } else {
       url = this.props.url + this.state.selectedChampName + '.png'
