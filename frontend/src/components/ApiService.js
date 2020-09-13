@@ -8,8 +8,20 @@ class ApiService {
     return axios.get(BASE_URL + '/' + 'main');
   }
 
-  selectChamp(champName) {
-    return axios.get(BASE_URL + '/' + champName);
+  getCounter(champName) {
+    return axios.get(BASE_URL + '/enemy/' + champName + '/counters');
+  }
+
+  getCC(champName) {
+    return axios.get(BASE_URL + '/ally/' + champName + '/cc_skills');
+  }
+
+  getType(champName) {
+    return axios.get(BASE_URL + '/ally/' + champName + '/types');
+  }
+
+  getSynergy(champName, line) {
+    return axios.get(BASE_URL + '/ally/' + champName + '/' + line + '/synergies');
   }
 
 }

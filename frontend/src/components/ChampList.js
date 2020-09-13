@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './ChampList.css'
 import './ApiService'
-import ApiService from './ApiService';
 
 class ChampList extends Component {
   constructor(props){
@@ -15,7 +14,6 @@ class ChampList extends Component {
   selectChampion(e){
     e.preventDefault();
     this.props.selectChampion(e.target.alt);
-    ApiService.selectChamp(e.target.alt);
   }
   selectTeam(e){
     e.preventDefault();

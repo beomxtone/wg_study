@@ -1,13 +1,13 @@
 .view {
-  width: 630px;
-  height: 490px;
+  width: 800px;
+  height: 600px;
   border: 1px solid black;
   margin: 0 auto;
   float: left;
   overflow: auto;
   -ms-overflow-style: none;
   position: absolute;
-  top: 12%;
+  top: 20%;
   left: 28%;
   background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
 }
@@ -15,33 +15,48 @@
   display:none;
 }
 .picked {
-  width: 75px;
-  height: 75px;
-  margin: 15px;
+  width: 90px;
+  height: 90px;
+  margin: 21px;
   filter: grayscale(100%);
 }
 .unpicked {
-  width: 75px;
-  height: 75px;
-  margin: 15px;
+  width: 90px;
+  height: 90px;
+  margin: 21px;
 }
 .Blue {
   width: 150px;
   height: 80px;
   margin-left: 100px;
-  margin-top: 200px;
+  margin-top: 250px;
   float: left;
   line-height: 80px;
   font-size: xx-large;
   background: linear-gradient( rgb(58, 77, 255, 0.7), rgba(58, 77, 255, 0.5));
 }
+.BlueTeam {
+  font-size: xx-large;
+  color: rgb(58, 77, 255);
+  text-align: center;
+}
 .Red {
   width: 150px;
   height: 80px;
   margin-right: 100px;
-  margin-top: 200px;
+  margin-top: 250px;
   float: right;
   line-height: 80px;
   font-size: xx-large;
   background: linear-gradient( rgb(255, 58, 58, 0.7), rgba(255, 58, 58, 0.5));
+}
+.RedTeam {
+  font-size: xx-large;
+  color: rgb(255, 58, 58);
+  text-align: center;
+}
+.DefaultTeam {
+  font-size: xx-large;
+  color: gray;
+  text-align: center;
 }

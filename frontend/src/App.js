@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import ChampList from './components/ChampList';
-import PickFive from './components/PickFive'
+import PickFive from './components/PickFive';
+import Synergy from './components/Synergy';
 
 class App extends Component {
   constructor(props){
@@ -179,13 +180,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Synergy
+          className="synergy"
+        ></Synergy>
         <div className="pick1">
-        <PickFive
-          champName={this.state.selectedChamp}
-          url={this.squareURL}
-          team={this.state.team}
-          pickCount={this.state.pickCount}
-        ></PickFive>
+          <PickFive
+            champName={this.state.selectedChamp}
+            url={this.squareURL}
+            team={this.state.team}
+            allyEnemy='Ally'
+            pickCount={this.state.pickCount}
+          ></PickFive>
         </div>
         <ChampList 
           className="main"
@@ -232,12 +237,13 @@ class App extends Component {
           }.bind(this)}
         ></ChampList>
         <div className="pick2">
-        <PickFive 
-          champName={this.state.selectedChamp}
-          url={this.squareURL}
-          team={this.state.team2}
-          pickCount={this.state.pickCount}
-        ></PickFive>
+          <PickFive 
+            champName={this.state.selectedChamp}
+            url={this.squareURL}
+            team={this.state.team2}
+            allyEnemy='Enemy'
+            pickCount={this.state.pickCount}
+          ></PickFive>
         </div>
       </div>
     );

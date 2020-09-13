@@ -42,6 +42,7 @@ class PickFive extends Component {
         <PickChamp
           url={this.props.url}
           team={this.props.team}
+          allyEnemy={this.props.allyEnemy}
           key={this.teamCheck(this.props.team)[i-1]}
           pickNum={this.teamCheck(this.props.team)[i-1]}
           pickCount={this.props.pickCount}
@@ -51,7 +52,11 @@ class PickFive extends Component {
       i=i+1;
     }
     return(
-      <div style={divStyle}>
+      <div 
+        className={this.props.team + 'Team'} 
+        style={divStyle}
+        >
+        {this.props.team}
         {list}
       </div>
     );
